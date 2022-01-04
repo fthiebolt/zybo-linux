@@ -1,6 +1,14 @@
 # Vivado generated files
+.Xil
 *.jou
 *.log
+
+# generated directories
+*.cache
+*.runs
+*.sim
+*.hw
+*.ip_user_files
 
 # Compiler outputs
 *.o

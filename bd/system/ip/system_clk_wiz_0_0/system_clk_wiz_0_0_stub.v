@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
-// Date        : Mon Jan  3 16:06:35 2022
+// Date        : Tue Jan  4 08:59:24 2022
 // Host        : clever.amilab.irit.fr running 64-bit unknown
 // Command     : write_verilog -force -mode synth_stub
-//               /nfs/home/francois/zybo_digilent_system/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_stub.v
+//               /nfs/home/francois/zybo-linux/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_stub.v
 // Design      : system_clk_wiz_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1

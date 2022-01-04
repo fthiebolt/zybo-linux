@@ -1,11 +1,11 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
-// Date        : Mon Jan  3 16:09:10 2022
+// Date        : Tue Jan  4 09:01:44 2022
 // Host        : clever.amilab.irit.fr running 64-bit unknown
 // Command     : write_verilog -force -mode synth_stub -rename_top system_auto_pc_4 -prefix
-//               system_auto_pc_4_ system_auto_pc_1_stub.v
-// Design      : system_auto_pc_1
+//               system_auto_pc_4_ system_auto_pc_6_stub.v
+// Design      : system_auto_pc_6
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1
 // --------------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 --Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
---Date        : Mon Jan  3 16:04:51 2022
+--Date        : Tue Jan  4 10:34:57 2022
 --Host        : clever.amilab.irit.fr running 64-bit unknown
 --Command     : generate_target system.bd
 --Design      : system
@@ -8821,7 +8821,7 @@ entity system is
     sysclk : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of system : entity is "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=50,numReposBlks=32,numNonXlnxBlks=3,numHierBlks=18,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_clkrst_cnt=1,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of system : entity is "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=50,numReposBlks=32,numNonXlnxBlks=3,numHierBlks=18,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_clkrst_cnt=2,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of system : entity is "system.hwdef";
 end system;
@@ -9393,11 +9393,11 @@ architecture STRUCTURE of system is
   signal axi_dynclk_0_LOCKED_O : STD_LOGIC;
   signal axi_dynclk_0_PXL_CLK_5X_O : STD_LOGIC;
   signal axi_dynclk_0_PXL_CLK_O : STD_LOGIC;
-  signal axi_gpio_0_GPIO1_TRI_I : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal axi_gpio_0_GPIO2_TRI_I : STD_LOGIC_VECTOR ( 0 to 0 );
   signal axi_gpio_0_ip2intc_irpt : STD_LOGIC;
   signal axi_gpio_led_GPIO_TRI_O : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal axi_gpio_sw_GPIO2_TRI_I : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal axi_gpio_sw_btn_GPIO_TRI_I : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal axi_gpio_sw_ip2intc_irpt : STD_LOGIC;
   signal axi_i2s_adi_1_BCLK_O : STD_LOGIC_VECTOR ( 0 to 0 );
   signal axi_i2s_adi_1_DMA_RX_REQ_TLAST : STD_LOGIC;
@@ -9992,9 +9992,9 @@ begin
   ac_pblrc(0) <= axi_i2s_adi_1_LRCLK_O(0);
   ac_recdat_1(0) <= ac_recdat(0);
   ac_reclrc(0) <= axi_i2s_adi_1_LRCLK_O(0);
-  axi_gpio_0_GPIO1_TRI_I(3 downto 0) <= sws_4bits_tri_i(3 downto 0);
   axi_gpio_0_GPIO2_TRI_I(0) <= HDMI_HPD_tri_i(0);
   axi_gpio_sw_GPIO2_TRI_I(3 downto 0) <= btns_4bits_tri_i(3 downto 0);
+  axi_gpio_sw_btn_GPIO_TRI_I(3 downto 0) <= sws_4bits_tri_i(3 downto 0);
   leds_4bits_tri_o(3 downto 0) <= axi_gpio_led_GPIO_TRI_O(3 downto 0);
   processing_system7_0_IIC_0_SCL_I <= IIC_0_scl_i;
   processing_system7_0_IIC_0_SDA_I <= IIC_0_sda_i;
@@ -10078,7 +10078,7 @@ axi_gpio_led: component system_axi_gpio_led_0
 axi_gpio_sw_btn: component system_axi_gpio_sw_btn_0
      port map (
       gpio2_io_i(3 downto 0) => axi_gpio_sw_GPIO2_TRI_I(3 downto 0),
-      gpio_io_i(3 downto 0) => axi_gpio_0_GPIO1_TRI_I(3 downto 0),
+      gpio_io_i(3 downto 0) => axi_gpio_sw_btn_GPIO_TRI_I(3 downto 0),
       ip2intc_irpt => axi_gpio_sw_ip2intc_irpt,
       s_axi_aclk => processing_system7_0_FCLK_CLK0,
       s_axi_araddr(8 downto 0) => processing_system7_0_axi_periph_M02_AXI_ARADDR(8 downto 0),

@@ -1,7 +1,7 @@
 --Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
---Date        : Mon Jan  3 16:04:52 2022
+--Date        : Tue Jan  4 10:34:58 2022
 --Host        : clever.amilab.irit.fr running 64-bit unknown
 --Command     : generate_target system_wrapper.bd
 --Design      : system_wrapper
@@ -90,10 +90,10 @@ architecture STRUCTURE of system_wrapper is
     Vaux7_v_p : in STD_LOGIC;
     Vp_Vn_v_n : in STD_LOGIC;
     Vp_Vn_v_p : in STD_LOGIC;
-    sws_4bits_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
     HDMI_HPD_tri_i : in STD_LOGIC_VECTOR ( 0 to 0 );
     leds_4bits_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
     btns_4bits_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    sws_4bits_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
     DDR_cas_n : inout STD_LOGIC;
     DDR_cke : inout STD_LOGIC;
     DDR_ck_n : inout STD_LOGIC;

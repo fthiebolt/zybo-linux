@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Jan  3 16:05:15 2022" VIVADOVERSION="2021.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jan  4 10:34:59 2022" VIVADOVERSION="2021.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="digilentinc.com:zybo:part0:2.0" DEVICE="7z010" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -99,11 +99,6 @@
         <CONNECTION INSTANCE="xadc_wiz_0" PORT="vp_in"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="3" NAME="sws_4bits_tri_i" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_sw_btn_gpio_io_i">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_gpio_sw_btn" PORT="gpio_io_i"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="I" LEFT="0" NAME="HDMI_HPD_tri_i" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_hdmi_gpio_io_i">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_gpio_hdmi" PORT="gpio_io_i"/>
@@ -117,6 +112,11 @@
     <PORT DIR="I" LEFT="3" NAME="btns_4bits_tri_i" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_sw_btn_gpio2_io_i">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_gpio_sw_btn" PORT="gpio2_io_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="3" NAME="sws_4bits_tri_i" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_sw_btn_gpio_io_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_gpio_sw_btn" PORT="gpio_io_i"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="IO" NAME="DDR_cas_n" SIGIS="undef" SIGNAME="processing_system7_0_DDR_CAS_n">
@@ -419,15 +419,18 @@
         <PORTMAP LOGICAL="TRI_I" PHYSICAL="btns_4bits_tri_i"/>
       </PORTMAPS>
     </BUSINTERFACE>
+    <BUSINTERFACE BUSNAME="axi_gpio_sw_btn_GPIO" NAME="sws_4bits" TYPE="INITIATOR">
+      <PORTMAPS>
+        <PORTMAP LOGICAL="TRI_I" PHYSICAL="sws_4bits_tri_i"/>
+      </PORTMAPS>
+    </BUSINTERFACE>
     <BUSINTERFACE BUSNAME="axi_gpio_led_GPIO" NAME="leds_4bits" TYPE="INITIATOR">
       <PORTMAPS>
         <PORTMAP LOGICAL="TRI_O" PHYSICAL="leds_4bits_tri_o"/>
       </PORTMAPS>
     </BUSINTERFACE>
-    <BUSINTERFACE BUSNAME="axi_gpio_sw_btn_GPIO" NAME="sws_4bits" TYPE="INITIATOR">
-      <PORTMAPS>
-        <PORTMAP LOGICAL="TRI_I" PHYSICAL="sws_4bits_tri_i"/>
-      </PORTMAPS>
+    <BUSINTERFACE BUSNAME="__NOC__" NAME="hdmi_out" TYPE="INITIATOR">
+      <PORTMAPS/>
     </BUSINTERFACE>
   </EXTERNALINTERFACES>
 

@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
-// Date        : Mon Jan  3 16:07:43 2022
+// Date        : Tue Jan  4 09:02:00 2022
 // Host        : clever.amilab.irit.fr running 64-bit unknown
-// Command     : write_verilog -force -mode synth_stub
-//               /nfs/home/francois/zybo_digilent_system/bd/system/ip/system_s00_regslice_0/system_s00_regslice_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top system_s00_regslice_0 -prefix
+//               system_s00_regslice_0_ system_s00_regslice_0_stub.v
 // Design      : system_s00_regslice_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1

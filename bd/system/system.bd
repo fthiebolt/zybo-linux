@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xAB1A57595C578D0B",
+      "boundary_crc": "0xAB1A575929DFECFB",
       "device": "xc7z010clg400-1",
       "name": "system",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -190,15 +190,20 @@
         "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
         "vlnv": "xilinx.com:interface:gpio_rtl:1.0"
       },
+      "sws_4bits": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
+        "vlnv": "xilinx.com:interface:gpio_rtl:1.0"
+      },
       "leds_4bits": {
         "mode": "Master",
         "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
         "vlnv": "xilinx.com:interface:gpio_rtl:1.0"
       },
-      "sws_4bits": {
+      "hdmi_out": {
         "mode": "Master",
-        "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
-        "vlnv": "xilinx.com:interface:gpio_rtl:1.0"
+        "vlnv_bus_definition": "digilentinc.com:interface:tmds:1.0",
+        "vlnv": "digilentinc.com:interface:tmds_rtl:1.0"
       }
     },
     "ports": {
@@ -4943,12 +4948,6 @@
           "xadc_wiz_0/Vp_Vn"
         ]
       },
-      "axi_gpio_0_GPIO1": {
-        "interface_ports": [
-          "sws_4bits",
-          "axi_gpio_sw_btn/GPIO"
-        ]
-      },
       "axi_gpio_0_GPIO2": {
         "interface_ports": [
           "HDMI_HPD",
@@ -4965,6 +4964,12 @@
         "interface_ports": [
           "btns_4bits",
           "axi_gpio_sw_btn/GPIO2"
+        ]
+      },
+      "axi_gpio_sw_btn_GPIO": {
+        "interface_ports": [
+          "sws_4bits",
+          "axi_gpio_sw_btn/GPIO"
         ]
       },
       "axi_i2s_adi_1_DMA_RX_REQ": {

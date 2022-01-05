@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xA700A23D2C03DCEA",
+      "boundary_crc": "0x1473AE6CA06310BE",
       "device": "xc7z010clg400-1",
       "name": "system",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -140,16 +140,6 @@
           }
         }
       },
-      "HDMI_DDC": {
-        "mode": "Master",
-        "vlnv_bus_definition": "xilinx.com:interface:iic:1.0",
-        "vlnv": "xilinx.com:interface:iic_rtl:1.0"
-      },
-      "HDMI_HPD": {
-        "mode": "Master",
-        "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
-        "vlnv": "xilinx.com:interface:gpio_rtl:1.0"
-      },
       "IIC_0": {
         "mode": "Master",
         "vlnv_bus_definition": "xilinx.com:interface:iic:1.0",
@@ -200,10 +190,10 @@
         "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
         "vlnv": "xilinx.com:interface:gpio_rtl:1.0"
       },
-      "hdmi_out": {
+      "hdmi_hpd": {
         "mode": "Master",
-        "vlnv_bus_definition": "digilentinc.com:interface:tmds:1.0",
-        "vlnv": "digilentinc.com:interface:tmds_rtl:1.0"
+        "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
+        "vlnv": "xilinx.com:interface:gpio_rtl:1.0"
       }
     },
     "ports": {
@@ -257,11 +247,6 @@
             "value_src": "ip_prop"
           }
         }
-      },
-      "HDMI_OEN": {
-        "direction": "O",
-        "left": "0",
-        "right": "0"
       },
       "ac_muten": {
         "direction": "O",
@@ -2898,17 +2883,17 @@
         "xci_path": "ip/system_axi_gpio_hdmi_0/system_axi_gpio_hdmi_0.xci",
         "inst_hier_path": "axi_gpio_hdmi",
         "parameters": {
-          "C_ALL_INPUTS": {
-            "value": "1"
-          },
-          "C_GPIO_WIDTH": {
-            "value": "1"
-          },
           "C_INTERRUPT_PRESENT": {
             "value": "1"
           },
           "C_IS_DUAL": {
             "value": "0"
+          },
+          "GPIO_BOARD_INTERFACE": {
+            "value": "hdmi_hpd"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
           }
         }
       },
@@ -4308,6 +4293,15 @@
           "PCW_S_AXI_HP0_ID_WIDTH": {
             "value": "6"
           },
+          "PCW_S_AXI_HP1_DATA_WIDTH": {
+            "value": "64"
+          },
+          "PCW_S_AXI_HP2_DATA_WIDTH": {
+            "value": "64"
+          },
+          "PCW_S_AXI_HP3_DATA_WIDTH": {
+            "value": "64"
+          },
           "PCW_TPIU_PERIPHERAL_CLKSRC": {
             "value": "External"
           },
@@ -4912,9 +4906,9 @@
           "xadc_wiz_0/Vp_Vn"
         ]
       },
-      "axi_gpio_0_GPIO2": {
+      "axi_gpio_hdmi_GPIO": {
         "interface_ports": [
-          "HDMI_HPD",
+          "hdmi_hpd",
           "axi_gpio_hdmi/GPIO"
         ]
       },
@@ -5000,12 +4994,6 @@
         "interface_ports": [
           "IIC_0",
           "processing_system7_0/IIC_0"
-        ]
-      },
-      "processing_system7_0_IIC_1": {
-        "interface_ports": [
-          "HDMI_DDC",
-          "processing_system7_0/IIC_1"
         ]
       },
       "processing_system7_0_M_AXI_GP0": {
@@ -5297,8 +5285,7 @@
       "xlconstant_0_dout": {
         "ports": [
           "xlconstant_0/dout",
-          "ac_muten",
-          "HDMI_OEN"
+          "ac_muten"
         ]
       },
       "xlconstant_1_dout": {

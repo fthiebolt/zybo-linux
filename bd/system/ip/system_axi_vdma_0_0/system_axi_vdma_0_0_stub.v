@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
-// Date        : Wed Jan  5 13:44:28 2022
-// Host        : fedora running 64-bit unknown
+// Date        : Wed Jan  5 17:22:53 2022
+// Host        : clever.amilab.irit.fr running 64-bit unknown
 // Command     : write_verilog -force -mode synth_stub
-//               /home/devel/zybo-linux/bd/system/ip/system_axi_vdma_0_0/system_axi_vdma_0_0_stub.v
+//               /nfs/home/francois/zybo-linux/bd/system/ip/system_axi_vdma_0_0/system_axi_vdma_0_0_stub.v
 // Design      : system_axi_vdma_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1

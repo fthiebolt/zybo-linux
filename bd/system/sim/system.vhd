@@ -1,7 +1,7 @@
 --Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
---Date        : Wed Jan  5 10:44:43 2022
+--Date        : Wed Jan  5 18:13:48 2022
 --Host        : clever.amilab.irit.fr running 64-bit unknown
 --Command     : generate_target system.bd
 --Design      : system
@@ -8780,14 +8780,6 @@ entity system is
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
-    HDMI_DDC_scl_i : in STD_LOGIC;
-    HDMI_DDC_scl_o : out STD_LOGIC;
-    HDMI_DDC_scl_t : out STD_LOGIC;
-    HDMI_DDC_sda_i : in STD_LOGIC;
-    HDMI_DDC_sda_o : out STD_LOGIC;
-    HDMI_DDC_sda_t : out STD_LOGIC;
-    HDMI_HPD_tri_i : in STD_LOGIC_VECTOR ( 0 to 0 );
-    HDMI_OEN : out STD_LOGIC_VECTOR ( 0 to 0 );
     IIC_0_scl_i : in STD_LOGIC;
     IIC_0_scl_o : out STD_LOGIC;
     IIC_0_scl_t : out STD_LOGIC;
@@ -8816,14 +8808,17 @@ entity system is
     ac_recdat : in STD_LOGIC_VECTOR ( 0 to 0 );
     ac_reclrc : out STD_LOGIC_VECTOR ( 0 to 0 );
     btns_4bits_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    hdmi_hpd_tri_i : in STD_LOGIC;
+    hdmi_hpd_tri_o : out STD_LOGIC;
+    hdmi_hpd_tri_t : out STD_LOGIC;
     leds_4bits_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
     sws_4bits_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
     sys_clock : in STD_LOGIC
   );
-  attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of system : entity is "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=50,numReposBlks=32,numNonXlnxBlks=3,numHierBlks=18,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=2,da_clkrst_cnt=2,synth_mode=OOC_per_IP}";
-  attribute HW_HANDOFF : string;
-  attribute HW_HANDOFF of system : entity is "system.hwdef";
+  attribute core_generation_info : string;
+  attribute core_generation_info of system : entity is "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=50,numReposBlks=32,numNonXlnxBlks=3,numHierBlks=18,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=2,da_clkrst_cnt=2,synth_mode=OOC_per_IP}";
+  attribute hw_handoff : string;
+  attribute hw_handoff of system : entity is "system.hwdef";
 end system;
 
 architecture STRUCTURE of system is
@@ -9122,7 +9117,9 @@ architecture STRUCTURE of system is
     s_axi_rvalid : out STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
     ip2intc_irpt : out STD_LOGIC;
-    gpio_io_i : in STD_LOGIC_VECTOR ( 0 to 0 )
+    gpio_io_i : in STD_LOGIC_VECTOR ( 0 to 0 );
+    gpio_io_o : out STD_LOGIC_VECTOR ( 0 to 0 );
+    gpio_io_t : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component system_axi_gpio_hdmi_0;
   component system_axi_gpio_led_0 is
@@ -9394,8 +9391,10 @@ architecture STRUCTURE of system is
   signal axi_dynclk_0_LOCKED_O : STD_LOGIC;
   signal axi_dynclk_0_PXL_CLK_5X_O : STD_LOGIC;
   signal axi_dynclk_0_PXL_CLK_O : STD_LOGIC;
-  signal axi_gpio_0_GPIO2_TRI_I : STD_LOGIC_VECTOR ( 0 to 0 );
   signal axi_gpio_0_ip2intc_irpt : STD_LOGIC;
+  signal axi_gpio_hdmi_GPIO_TRI_I : STD_LOGIC;
+  signal axi_gpio_hdmi_GPIO_TRI_O : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal axi_gpio_hdmi_GPIO_TRI_T : STD_LOGIC_VECTOR ( 0 to 0 );
   signal axi_gpio_led_GPIO_TRI_O : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal axi_gpio_sw_GPIO2_TRI_I : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal axi_gpio_sw_btn_GPIO_TRI_I : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -9488,12 +9487,6 @@ architecture STRUCTURE of system is
   signal processing_system7_0_IIC_0_SDA_I : STD_LOGIC;
   signal processing_system7_0_IIC_0_SDA_O : STD_LOGIC;
   signal processing_system7_0_IIC_0_SDA_T : STD_LOGIC;
-  signal processing_system7_0_IIC_1_SCL_I : STD_LOGIC;
-  signal processing_system7_0_IIC_1_SCL_O : STD_LOGIC;
-  signal processing_system7_0_IIC_1_SCL_T : STD_LOGIC;
-  signal processing_system7_0_IIC_1_SDA_I : STD_LOGIC;
-  signal processing_system7_0_IIC_1_SDA_O : STD_LOGIC;
-  signal processing_system7_0_IIC_1_SDA_T : STD_LOGIC;
   signal processing_system7_0_M_AXI_GP0_ARADDR : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal processing_system7_0_M_AXI_GP0_ARBURST : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal processing_system7_0_M_AXI_GP0_ARCACHE : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -9706,6 +9699,10 @@ architecture STRUCTURE of system is
   signal NLW_proc_sys_reset_1_mb_reset_UNCONNECTED : STD_LOGIC;
   signal NLW_proc_sys_reset_1_bus_struct_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_proc_sys_reset_1_peripheral_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_processing_system7_0_I2C1_SCL_O_UNCONNECTED : STD_LOGIC;
+  signal NLW_processing_system7_0_I2C1_SCL_T_UNCONNECTED : STD_LOGIC;
+  signal NLW_processing_system7_0_I2C1_SDA_O_UNCONNECTED : STD_LOGIC;
+  signal NLW_processing_system7_0_I2C1_SDA_T_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_S_AXI_HP0_AWREADY_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_S_AXI_HP0_BVALID_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_S_AXI_HP0_WREADY_UNCONNECTED : STD_LOGIC;
@@ -9904,71 +9901,62 @@ architecture STRUCTURE of system is
   signal NLW_xadc_wiz_0_eoc_out_UNCONNECTED : STD_LOGIC;
   signal NLW_xadc_wiz_0_eos_out_UNCONNECTED : STD_LOGIC;
   signal NLW_xadc_wiz_0_channel_out_UNCONNECTED : STD_LOGIC_VECTOR ( 4 downto 0 );
-  attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of DDR_cas_n : signal is "xilinx.com:interface:ddrx:1.0 DDR CAS_N";
-  attribute X_INTERFACE_INFO of DDR_ck_n : signal is "xilinx.com:interface:ddrx:1.0 DDR CK_N";
-  attribute X_INTERFACE_INFO of DDR_ck_p : signal is "xilinx.com:interface:ddrx:1.0 DDR CK_P";
-  attribute X_INTERFACE_INFO of DDR_cke : signal is "xilinx.com:interface:ddrx:1.0 DDR CKE";
-  attribute X_INTERFACE_INFO of DDR_cs_n : signal is "xilinx.com:interface:ddrx:1.0 DDR CS_N";
-  attribute X_INTERFACE_INFO of DDR_odt : signal is "xilinx.com:interface:ddrx:1.0 DDR ODT";
-  attribute X_INTERFACE_INFO of DDR_ras_n : signal is "xilinx.com:interface:ddrx:1.0 DDR RAS_N";
-  attribute X_INTERFACE_INFO of DDR_reset_n : signal is "xilinx.com:interface:ddrx:1.0 DDR RESET_N";
-  attribute X_INTERFACE_INFO of DDR_we_n : signal is "xilinx.com:interface:ddrx:1.0 DDR WE_N";
-  attribute X_INTERFACE_INFO of FIXED_IO_ddr_vrn : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO DDR_VRN";
-  attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of FIXED_IO_ddr_vrn : signal is "XIL_INTERFACENAME FIXED_IO, CAN_DEBUG false";
-  attribute X_INTERFACE_INFO of FIXED_IO_ddr_vrp : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO DDR_VRP";
-  attribute X_INTERFACE_INFO of FIXED_IO_ps_clk : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_CLK";
-  attribute X_INTERFACE_INFO of FIXED_IO_ps_porb : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_PORB";
-  attribute X_INTERFACE_INFO of FIXED_IO_ps_srstb : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB";
-  attribute X_INTERFACE_INFO of HDMI_DDC_scl_i : signal is "xilinx.com:interface:iic:1.0 HDMI_DDC SCL_I";
-  attribute X_INTERFACE_INFO of HDMI_DDC_scl_o : signal is "xilinx.com:interface:iic:1.0 HDMI_DDC SCL_O";
-  attribute X_INTERFACE_INFO of HDMI_DDC_scl_t : signal is "xilinx.com:interface:iic:1.0 HDMI_DDC SCL_T";
-  attribute X_INTERFACE_INFO of HDMI_DDC_sda_i : signal is "xilinx.com:interface:iic:1.0 HDMI_DDC SDA_I";
-  attribute X_INTERFACE_INFO of HDMI_DDC_sda_o : signal is "xilinx.com:interface:iic:1.0 HDMI_DDC SDA_O";
-  attribute X_INTERFACE_INFO of HDMI_DDC_sda_t : signal is "xilinx.com:interface:iic:1.0 HDMI_DDC SDA_T";
-  attribute X_INTERFACE_INFO of IIC_0_scl_i : signal is "xilinx.com:interface:iic:1.0 IIC_0 SCL_I";
-  attribute X_INTERFACE_INFO of IIC_0_scl_o : signal is "xilinx.com:interface:iic:1.0 IIC_0 SCL_O";
-  attribute X_INTERFACE_INFO of IIC_0_scl_t : signal is "xilinx.com:interface:iic:1.0 IIC_0 SCL_T";
-  attribute X_INTERFACE_INFO of IIC_0_sda_i : signal is "xilinx.com:interface:iic:1.0 IIC_0 SDA_I";
-  attribute X_INTERFACE_INFO of IIC_0_sda_o : signal is "xilinx.com:interface:iic:1.0 IIC_0 SDA_O";
-  attribute X_INTERFACE_INFO of IIC_0_sda_t : signal is "xilinx.com:interface:iic:1.0 IIC_0 SDA_T";
-  attribute X_INTERFACE_INFO of TMDS_clk_n : signal is "digilentinc.com:interface:tmds:1.0 TMDS CLK_N";
-  attribute X_INTERFACE_INFO of TMDS_clk_p : signal is "digilentinc.com:interface:tmds:1.0 TMDS CLK_P";
-  attribute X_INTERFACE_INFO of Vaux14_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux14 V_N";
-  attribute X_INTERFACE_INFO of Vaux14_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux14 V_P";
-  attribute X_INTERFACE_INFO of Vaux15_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux15 V_N";
-  attribute X_INTERFACE_INFO of Vaux15_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux15 V_P";
-  attribute X_INTERFACE_INFO of Vaux6_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux6 V_N";
-  attribute X_INTERFACE_INFO of Vaux6_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux6 V_P";
-  attribute X_INTERFACE_INFO of Vaux7_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux7 V_N";
-  attribute X_INTERFACE_INFO of Vaux7_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux7 V_P";
-  attribute X_INTERFACE_INFO of Vp_Vn_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vp_Vn V_N";
-  attribute X_INTERFACE_INFO of Vp_Vn_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vp_Vn V_P";
-  attribute X_INTERFACE_INFO of ac_mclk : signal is "xilinx.com:signal:clock:1.0 CLK.AC_MCLK CLK";
-  attribute X_INTERFACE_PARAMETER of ac_mclk : signal is "XIL_INTERFACENAME CLK.AC_MCLK, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of sys_clock : signal is "xilinx.com:signal:clock:1.0 CLK.SYS_CLOCK CLK";
-  attribute X_INTERFACE_PARAMETER of sys_clock : signal is "XIL_INTERFACENAME CLK.SYS_CLOCK, CLK_DOMAIN system_sys_clock, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of DDR_addr : signal is "xilinx.com:interface:ddrx:1.0 DDR ADDR";
-  attribute X_INTERFACE_PARAMETER of DDR_addr : signal is "XIL_INTERFACENAME DDR, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250";
-  attribute X_INTERFACE_INFO of DDR_ba : signal is "xilinx.com:interface:ddrx:1.0 DDR BA";
-  attribute X_INTERFACE_INFO of DDR_dm : signal is "xilinx.com:interface:ddrx:1.0 DDR DM";
-  attribute X_INTERFACE_INFO of DDR_dq : signal is "xilinx.com:interface:ddrx:1.0 DDR DQ";
-  attribute X_INTERFACE_INFO of DDR_dqs_n : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_N";
-  attribute X_INTERFACE_INFO of DDR_dqs_p : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_P";
-  attribute X_INTERFACE_INFO of FIXED_IO_mio : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO MIO";
-  attribute X_INTERFACE_INFO of HDMI_HPD_tri_i : signal is "xilinx.com:interface:gpio:1.0 HDMI_HPD TRI_I";
-  attribute X_INTERFACE_INFO of TMDS_data_n : signal is "digilentinc.com:interface:tmds:1.0 TMDS DATA_N";
-  attribute X_INTERFACE_INFO of TMDS_data_p : signal is "digilentinc.com:interface:tmds:1.0 TMDS DATA_P";
-  attribute X_INTERFACE_INFO of btns_4bits_tri_i : signal is "xilinx.com:interface:gpio:1.0 btns_4bits TRI_I";
-  attribute X_INTERFACE_INFO of leds_4bits_tri_o : signal is "xilinx.com:interface:gpio:1.0 leds_4bits TRI_O";
-  attribute X_INTERFACE_INFO of sws_4bits_tri_i : signal is "xilinx.com:interface:gpio:1.0 sws_4bits TRI_I";
+  attribute x_interface_info : string;
+  attribute x_interface_info of DDR_cas_n : signal is "xilinx.com:interface:ddrx:1.0 DDR CAS_N";
+  attribute x_interface_info of DDR_ck_n : signal is "xilinx.com:interface:ddrx:1.0 DDR CK_N";
+  attribute x_interface_info of DDR_ck_p : signal is "xilinx.com:interface:ddrx:1.0 DDR CK_P";
+  attribute x_interface_info of DDR_cke : signal is "xilinx.com:interface:ddrx:1.0 DDR CKE";
+  attribute x_interface_info of DDR_cs_n : signal is "xilinx.com:interface:ddrx:1.0 DDR CS_N";
+  attribute x_interface_info of DDR_odt : signal is "xilinx.com:interface:ddrx:1.0 DDR ODT";
+  attribute x_interface_info of DDR_ras_n : signal is "xilinx.com:interface:ddrx:1.0 DDR RAS_N";
+  attribute x_interface_info of DDR_reset_n : signal is "xilinx.com:interface:ddrx:1.0 DDR RESET_N";
+  attribute x_interface_info of DDR_we_n : signal is "xilinx.com:interface:ddrx:1.0 DDR WE_N";
+  attribute x_interface_info of FIXED_IO_ddr_vrn : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO DDR_VRN";
+  attribute x_interface_parameter : string;
+  attribute x_interface_parameter of FIXED_IO_ddr_vrn : signal is "XIL_INTERFACENAME FIXED_IO, CAN_DEBUG false";
+  attribute x_interface_info of FIXED_IO_ddr_vrp : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO DDR_VRP";
+  attribute x_interface_info of FIXED_IO_ps_clk : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_CLK";
+  attribute x_interface_info of FIXED_IO_ps_porb : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_PORB";
+  attribute x_interface_info of FIXED_IO_ps_srstb : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB";
+  attribute x_interface_info of IIC_0_scl_i : signal is "xilinx.com:interface:iic:1.0 IIC_0 SCL_I";
+  attribute x_interface_info of IIC_0_scl_o : signal is "xilinx.com:interface:iic:1.0 IIC_0 SCL_O";
+  attribute x_interface_info of IIC_0_scl_t : signal is "xilinx.com:interface:iic:1.0 IIC_0 SCL_T";
+  attribute x_interface_info of IIC_0_sda_i : signal is "xilinx.com:interface:iic:1.0 IIC_0 SDA_I";
+  attribute x_interface_info of IIC_0_sda_o : signal is "xilinx.com:interface:iic:1.0 IIC_0 SDA_O";
+  attribute x_interface_info of IIC_0_sda_t : signal is "xilinx.com:interface:iic:1.0 IIC_0 SDA_T";
+  attribute x_interface_info of TMDS_clk_n : signal is "digilentinc.com:interface:tmds:1.0 TMDS CLK_N";
+  attribute x_interface_info of TMDS_clk_p : signal is "digilentinc.com:interface:tmds:1.0 TMDS CLK_P";
+  attribute x_interface_info of Vaux14_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux14 V_N";
+  attribute x_interface_info of Vaux14_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux14 V_P";
+  attribute x_interface_info of Vaux15_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux15 V_N";
+  attribute x_interface_info of Vaux15_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux15 V_P";
+  attribute x_interface_info of Vaux6_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux6 V_N";
+  attribute x_interface_info of Vaux6_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux6 V_P";
+  attribute x_interface_info of Vaux7_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux7 V_N";
+  attribute x_interface_info of Vaux7_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux7 V_P";
+  attribute x_interface_info of Vp_Vn_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vp_Vn V_N";
+  attribute x_interface_info of Vp_Vn_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vp_Vn V_P";
+  attribute x_interface_info of ac_mclk : signal is "xilinx.com:signal:clock:1.0 CLK.AC_MCLK CLK";
+  attribute x_interface_parameter of ac_mclk : signal is "XIL_INTERFACENAME CLK.AC_MCLK, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute x_interface_info of hdmi_hpd_tri_i : signal is "xilinx.com:interface:gpio:1.0 hdmi_hpd TRI_I";
+  attribute x_interface_info of hdmi_hpd_tri_o : signal is "xilinx.com:interface:gpio:1.0 hdmi_hpd TRI_O";
+  attribute x_interface_info of hdmi_hpd_tri_t : signal is "xilinx.com:interface:gpio:1.0 hdmi_hpd TRI_T";
+  attribute x_interface_info of sys_clock : signal is "xilinx.com:signal:clock:1.0 CLK.SYS_CLOCK CLK";
+  attribute x_interface_parameter of sys_clock : signal is "XIL_INTERFACENAME CLK.SYS_CLOCK, CLK_DOMAIN system_sys_clock, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute x_interface_info of DDR_addr : signal is "xilinx.com:interface:ddrx:1.0 DDR ADDR";
+  attribute x_interface_parameter of DDR_addr : signal is "XIL_INTERFACENAME DDR, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250";
+  attribute x_interface_info of DDR_ba : signal is "xilinx.com:interface:ddrx:1.0 DDR BA";
+  attribute x_interface_info of DDR_dm : signal is "xilinx.com:interface:ddrx:1.0 DDR DM";
+  attribute x_interface_info of DDR_dq : signal is "xilinx.com:interface:ddrx:1.0 DDR DQ";
+  attribute x_interface_info of DDR_dqs_n : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_N";
+  attribute x_interface_info of DDR_dqs_p : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_P";
+  attribute x_interface_info of FIXED_IO_mio : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO MIO";
+  attribute x_interface_info of TMDS_data_n : signal is "digilentinc.com:interface:tmds:1.0 TMDS DATA_N";
+  attribute x_interface_info of TMDS_data_p : signal is "digilentinc.com:interface:tmds:1.0 TMDS DATA_P";
+  attribute x_interface_info of btns_4bits_tri_i : signal is "xilinx.com:interface:gpio:1.0 btns_4bits TRI_I";
+  attribute x_interface_info of leds_4bits_tri_o : signal is "xilinx.com:interface:gpio:1.0 leds_4bits TRI_O";
+  attribute x_interface_info of sws_4bits_tri_i : signal is "xilinx.com:interface:gpio:1.0 sws_4bits TRI_I";
 begin
-  HDMI_DDC_scl_o <= processing_system7_0_IIC_1_SCL_O;
-  HDMI_DDC_scl_t <= processing_system7_0_IIC_1_SCL_T;
-  HDMI_DDC_sda_o <= processing_system7_0_IIC_1_SDA_O;
-  HDMI_DDC_sda_t <= processing_system7_0_IIC_1_SDA_T;
-  HDMI_OEN(0) <= xlconstant_0_dout(0);
   IIC_0_scl_o <= processing_system7_0_IIC_0_SCL_O;
   IIC_0_scl_t <= processing_system7_0_IIC_0_SCL_T;
   IIC_0_sda_o <= processing_system7_0_IIC_0_SDA_O;
@@ -9994,14 +9982,14 @@ begin
   ac_pblrc(0) <= axi_i2s_adi_1_LRCLK_O(0);
   ac_recdat_1(0) <= ac_recdat(0);
   ac_reclrc(0) <= axi_i2s_adi_1_LRCLK_O(0);
-  axi_gpio_0_GPIO2_TRI_I(0) <= HDMI_HPD_tri_i(0);
+  axi_gpio_hdmi_GPIO_TRI_I <= hdmi_hpd_tri_i;
   axi_gpio_sw_GPIO2_TRI_I(3 downto 0) <= btns_4bits_tri_i(3 downto 0);
   axi_gpio_sw_btn_GPIO_TRI_I(3 downto 0) <= sws_4bits_tri_i(3 downto 0);
+  hdmi_hpd_tri_o <= axi_gpio_hdmi_GPIO_TRI_O(0);
+  hdmi_hpd_tri_t <= axi_gpio_hdmi_GPIO_TRI_T(0);
   leds_4bits_tri_o(3 downto 0) <= axi_gpio_led_GPIO_TRI_O(3 downto 0);
   processing_system7_0_IIC_0_SCL_I <= IIC_0_scl_i;
   processing_system7_0_IIC_0_SDA_I <= IIC_0_sda_i;
-  processing_system7_0_IIC_1_SCL_I <= HDMI_DDC_scl_i;
-  processing_system7_0_IIC_1_SDA_I <= HDMI_DDC_sda_i;
   sys_clock_1 <= sys_clock;
 axi_dynclk_0: component system_axi_dynclk_0_0
      port map (
@@ -10033,7 +10021,9 @@ axi_dynclk_0: component system_axi_dynclk_0_0
     );
 axi_gpio_hdmi: component system_axi_gpio_hdmi_0
      port map (
-      gpio_io_i(0) => axi_gpio_0_GPIO2_TRI_I(0),
+      gpio_io_i(0) => axi_gpio_hdmi_GPIO_TRI_I,
+      gpio_io_o(0) => axi_gpio_hdmi_GPIO_TRI_O(0),
+      gpio_io_t(0) => axi_gpio_hdmi_GPIO_TRI_T(0),
       ip2intc_irpt => axi_gpio_0_ip2intc_irpt,
       s_axi_aclk => processing_system7_0_FCLK_CLK0,
       s_axi_araddr(8 downto 0) => processing_system7_0_axi_periph_M06_AXI_ARADDR(8 downto 0),
@@ -10326,12 +10316,12 @@ processing_system7_0: component system_processing_system7_0_0
       I2C0_SDA_I => processing_system7_0_IIC_0_SDA_I,
       I2C0_SDA_O => processing_system7_0_IIC_0_SDA_O,
       I2C0_SDA_T => processing_system7_0_IIC_0_SDA_T,
-      I2C1_SCL_I => processing_system7_0_IIC_1_SCL_I,
-      I2C1_SCL_O => processing_system7_0_IIC_1_SCL_O,
-      I2C1_SCL_T => processing_system7_0_IIC_1_SCL_T,
-      I2C1_SDA_I => processing_system7_0_IIC_1_SDA_I,
-      I2C1_SDA_O => processing_system7_0_IIC_1_SDA_O,
-      I2C1_SDA_T => processing_system7_0_IIC_1_SDA_T,
+      I2C1_SCL_I => '0',
+      I2C1_SCL_O => NLW_processing_system7_0_I2C1_SCL_O_UNCONNECTED,
+      I2C1_SCL_T => NLW_processing_system7_0_I2C1_SCL_T_UNCONNECTED,
+      I2C1_SDA_I => '0',
+      I2C1_SDA_O => NLW_processing_system7_0_I2C1_SDA_O_UNCONNECTED,
+      I2C1_SDA_T => NLW_processing_system7_0_I2C1_SDA_T_UNCONNECTED,
       IRQ_F2P(4 downto 0) => xlconcat_0_dout(4 downto 0),
       MIO(53 downto 0) => FIXED_IO_mio(53 downto 0),
       M_AXI_GP0_ACLK => processing_system7_0_FCLK_CLK0,

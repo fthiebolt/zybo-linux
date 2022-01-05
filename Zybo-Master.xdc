@@ -10,24 +10,24 @@ create_clock -period 8.000 -name sys_clk_pin -waveform {0.000 4.000} -add [get_p
 
 
 #Switches
-set_property -dict { PACKAGE_PIN G15   IOSTANDARD LVCMOS33 } [get_ports { sws_4bits[0] }]; #IO_L19N_T3_VREF_35 Sch=SW0
-set_property -dict { PACKAGE_PIN P15   IOSTANDARD LVCMOS33 } [get_ports { sws_4bits[1] }]; #IO_L24P_T3_34 Sch=SW1
-set_property -dict { PACKAGE_PIN W13   IOSTANDARD LVCMOS33 } [get_ports { sws_4bits[2] }]; #IO_L4N_T0_34 Sch=SW2
-set_property -dict { PACKAGE_PIN T16   IOSTANDARD LVCMOS33 } [get_ports { sws_4bits[3] }]; #IO_L9P_T1_DQS_34 Sch=SW3
+set_property -dict { PACKAGE_PIN G15   IOSTANDARD LVCMOS33 } [get_ports { sws_4bits_tri_i[0] }]; #IO_L19N_T3_VREF_35 Sch=SW0
+set_property -dict { PACKAGE_PIN P15   IOSTANDARD LVCMOS33 } [get_ports { sws_4bits_tri_i[1] }]; #IO_L24P_T3_34 Sch=SW1
+set_property -dict { PACKAGE_PIN W13   IOSTANDARD LVCMOS33 } [get_ports { sws_4bits_tri_i[2] }]; #IO_L4N_T0_34 Sch=SW2
+set_property -dict { PACKAGE_PIN T16   IOSTANDARD LVCMOS33 } [get_ports { sws_4bits_tri_i[3] }]; #IO_L9P_T1_DQS_34 Sch=SW3
 
 
 #Buttons
-set_property -dict { PACKAGE_PIN R18   IOSTANDARD LVCMOS33 } [get_ports { btns_4bits[0] }]; #IO_L20N_T3_34 Sch=BTN0
-set_property -dict { PACKAGE_PIN P16   IOSTANDARD LVCMOS33 } [get_ports { btns_4bits[1] }]; #IO_L24N_T3_34 Sch=BTN1
-set_property -dict { PACKAGE_PIN V16   IOSTANDARD LVCMOS33 } [get_ports { btns_4bits[2] }]; #IO_L18P_T2_34 Sch=BTN2
-set_property -dict { PACKAGE_PIN Y16   IOSTANDARD LVCMOS33 } [get_ports { btns_4bits[3] }]; #IO_L7P_T1_34 Sch=BTN3
+set_property -dict { PACKAGE_PIN R18   IOSTANDARD LVCMOS33 } [get_ports { btns_4bits_tri_i[0] }]; #IO_L20N_T3_34 Sch=BTN0
+set_property -dict { PACKAGE_PIN P16   IOSTANDARD LVCMOS33 } [get_ports { btns_4bits_tri_i[1] }]; #IO_L24N_T3_34 Sch=BTN1
+set_property -dict { PACKAGE_PIN V16   IOSTANDARD LVCMOS33 } [get_ports { btns_4bits_tri_i[2] }]; #IO_L18P_T2_34 Sch=BTN2
+set_property -dict { PACKAGE_PIN Y16   IOSTANDARD LVCMOS33 } [get_ports { btns_4bits_tri_i[3] }]; #IO_L7P_T1_34 Sch=BTN3
 
 
 #LEDs
-set_property -dict { PACKAGE_PIN M14   IOSTANDARD LVCMOS33 } [get_ports { leds_4bits[0] }]; #IO_L23P_T3_35 Sch=LED0
-set_property -dict { PACKAGE_PIN M15   IOSTANDARD LVCMOS33 } [get_ports { leds_4bits[1] }]; #IO_L23N_T3_35 Sch=LED1
-set_property -dict { PACKAGE_PIN G14   IOSTANDARD LVCMOS33 } [get_ports { leds_4bits[2] }]; #IO_0_35=Sch=LED2
-set_property -dict { PACKAGE_PIN D18   IOSTANDARD LVCMOS33 } [get_ports { leds_4bits[3] }]; #IO_L3N_T0_DQS_AD1N_35 Sch=LED3
+set_property -dict { PACKAGE_PIN M14   IOSTANDARD LVCMOS33 } [get_ports { leds_4bits_tri_o[0] }]; #IO_L23P_T3_35 Sch=LED0
+set_property -dict { PACKAGE_PIN M15   IOSTANDARD LVCMOS33 } [get_ports { leds_4bits_tri_o[1] }]; #IO_L23N_T3_35 Sch=LED1
+set_property -dict { PACKAGE_PIN G14   IOSTANDARD LVCMOS33 } [get_ports { leds_4bits_tri_o[2] }]; #IO_0_35=Sch=LED2
+set_property -dict { PACKAGE_PIN D18   IOSTANDARD LVCMOS33 } [get_ports { leds_4bits_tri_o[3] }]; #IO_L3N_T0_DQS_AD1N_35 Sch=LED3
 
 
 #I2S Audio Codec
@@ -66,15 +66,15 @@ set_property -dict { PACKAGE_PIN G17   IOSTANDARD LVCMOS33 } [get_ports hdmi_scl
 set_property -dict { PACKAGE_PIN G18   IOSTANDARD LVCMOS33 } [get_ports hdmi_sda]; #IO_L16N_T2_35 Sch=HDMI_SDA
 
 
-##Pmod Header JA (XADC)
-set_property -dict { PACKAGE_PIN N15   IOSTANDARD LVCMOS33 } [get_ports { ja_p[0] }]; #IO_L21P_T3_DQS_AD14P_35 Sch=JA1_R_p
-set_property -dict { PACKAGE_PIN L14   IOSTANDARD LVCMOS33 } [get_ports { ja_p[1] }]; #IO_L22P_T3_AD7P_35 Sch=JA2_R_P
-set_property -dict { PACKAGE_PIN K16   IOSTANDARD LVCMOS33 } [get_ports { ja_p[2] }]; #IO_L24P_T3_AD15P_35 Sch=JA3_R_P
-set_property -dict { PACKAGE_PIN K14   IOSTANDARD LVCMOS33 } [get_ports { ja_p[3] }]; #IO_L20P_T3_AD6P_35 Sch=JA4_R_P
-set_property -dict { PACKAGE_PIN N16   IOSTANDARD LVCMOS33 } [get_ports { ja_n[0] }]; #IO_L21N_T3_DQS_AD14N_35 Sch=JA1_R_N
-set_property -dict { PACKAGE_PIN L15   IOSTANDARD LVCMOS33 } [get_ports { ja_n[1] }]; #IO_L22N_T3_AD7N_35 Sch=JA2_R_N
-set_property -dict { PACKAGE_PIN J16   IOSTANDARD LVCMOS33 } [get_ports { ja_n[2] }]; #IO_L24N_T3_AD15N_35 Sch=JA3_R_N
-set_property -dict { PACKAGE_PIN J14   IOSTANDARD LVCMOS33 } [get_ports { ja_n[3] }]; #IO_L20N_T3_AD6N_35 Sch=JA4_R_N
+#Pmod Header JA (XADC)
+set_property -dict { PACKAGE_PIN N15   IOSTANDARD LVCMOS33 } [get_ports Vaux14_v_p]; #IO_L21P_T3_DQS_AD14P_35 Sch=JA1_R_p
+set_property -dict { PACKAGE_PIN L14   IOSTANDARD LVCMOS33 } [get_ports Vaux7_v_p]; #IO_L22P_T3_AD7P_35 Sch=JA2_R_P
+set_property -dict { PACKAGE_PIN K16   IOSTANDARD LVCMOS33 } [get_ports Vaux15_v_p]; #IO_L24P_T3_AD15P_35 Sch=JA3_R_P
+set_property -dict { PACKAGE_PIN K14   IOSTANDARD LVCMOS33 } [get_ports Vaux6_v_p]; #IO_L20P_T3_AD6P_35 Sch=JA4_R_P
+set_property -dict { PACKAGE_PIN N16   IOSTANDARD LVCMOS33 } [get_ports Vaux14_v_n]; #IO_L21N_T3_DQS_AD14N_35 Sch=JA1_R_N
+set_property -dict { PACKAGE_PIN L15   IOSTANDARD LVCMOS33 } [get_ports Vaux7_v_n]; #IO_L22N_T3_AD7N_35 Sch=JA2_R_N
+set_property -dict { PACKAGE_PIN J16   IOSTANDARD LVCMOS33 } [get_ports Vaux15_v_n]; #IO_L24N_T3_AD15N_35 Sch=JA3_R_N
+set_property -dict { PACKAGE_PIN J14   IOSTANDARD LVCMOS33 } [get_ports Vaux6_v_n]; #IO_L20N_T3_AD6N_35 Sch=JA4_R_N
 
 
 ##Pmod Header JB
@@ -145,11 +145,3 @@ set_property -dict { PACKAGE_PIN J14   IOSTANDARD LVCMOS33 } [get_ports { ja_n[3
 #set_property -dict { PACKAGE_PIN P19   IOSTANDARD LVCMOS33 } [get_ports vga_hs]; #IO_L13N_T2_MRCC_34 Sch=VGA_HS
 #set_property -dict { PACKAGE_PIN R21   IOSTANDARD LVCMOS33 } [get_ports vga_vs]; #IO_0_34 Sch=VGA_VS
 
-set_property IOSTANDARD LVCMOS33 [get_ports Vaux15_v_p]
-set_property IOSTANDARD LVCMOS33 [get_ports Vaux15_v_n]
-set_property IOSTANDARD LVCMOS33 [get_ports Vaux14_v_p]
-set_property IOSTANDARD LVCMOS33 [get_ports Vaux14_v_n]
-set_property IOSTANDARD LVCMOS33 [get_ports Vaux7_v_p]
-set_property IOSTANDARD LVCMOS33 [get_ports Vaux7_v_n]
-set_property IOSTANDARD LVCMOS33 [get_ports Vaux6_v_p]
-set_property IOSTANDARD LVCMOS33 [get_ports Vaux6_v_n]

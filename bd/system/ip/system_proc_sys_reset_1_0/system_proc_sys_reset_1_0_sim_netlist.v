@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
-// Date        : Tue Jan  4 08:58:50 2022
-// Host        : clever.amilab.irit.fr running 64-bit unknown
+// Date        : Wed Jan  5 13:34:52 2022
+// Host        : fedora running 64-bit unknown
 // Command     : write_verilog -force -mode funcsim
-//               /nfs/home/francois/zybo-linux/bd/system/ip/system_proc_sys_reset_1_0/system_proc_sys_reset_1_0_sim_netlist.v
+//               /home/devel/zybo-linux/bd/system/ip/system_proc_sys_reset_1_0/system_proc_sys_reset_1_0_sim_netlist.v
 // Design      : system_proc_sys_reset_1_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.

@@ -1,5 +1,5 @@
 
-# file: system_clk_wiz_0_0_late.xdc
+# file: system_clk_wiz_0_1_ooc.xdc
 # 
 # (c) Copyright 2008 - 2013 Xilinx, Inc. All rights reserved.
 # 
@@ -48,6 +48,11 @@
 # PART OF THIS FILE AT ALL TIMES.
 # 
 
+#################
+#DEFAULT CLOCK CONSTRAINTS
 
-
+############################################################
+# Clock Period Constraints                                 #
+############################################################
+#create_clock -period 8.000 [get_ports clk_in1]
 

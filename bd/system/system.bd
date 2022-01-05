@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xAB1A575929DFECFB",
+      "boundary_crc": "0xA700A23D2C03DCEA",
       "device": "xc7z010clg400-1",
       "name": "system",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -66,12 +66,12 @@
       "axi_gpio_hdmi": "",
       "axi_gpio_led": "",
       "axi_gpio_sw_btn": "",
-      "clk_wiz_0": "",
       "proc_sys_reset_0": "",
       "proc_sys_reset_1": "",
       "processing_system7_0": "",
       "rgb2dvi_0": "",
-      "util_ds_buf_0": ""
+      "util_ds_buf_0": "",
+      "clk_wiz_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -207,33 +207,6 @@
       }
     },
     "ports": {
-      "sysclk": {
-        "type": "clk",
-        "direction": "I",
-        "left": "0",
-        "right": "0",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "system_sysclk",
-            "value_src": "default"
-          },
-          "FREQ_HZ": {
-            "value": "125000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
-          }
-        }
-      },
       "ac_recdat": {
         "direction": "I",
         "left": "0",
@@ -264,11 +237,11 @@
         "direction": "O",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "system_sysclk",
+            "value": "/clk_wiz_0_clk_out1",
             "value_src": "ip_prop"
           },
           "FREQ_HZ": {
-            "value": "12288013",
+            "value": "100000000",
             "value_src": "ip_prop"
           },
           "FREQ_TOLERANCE_HZ": {
@@ -294,6 +267,30 @@
         "direction": "O",
         "left": "0",
         "right": "0"
+      },
+      "sys_clock": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "system_sys_clock",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "125000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0"
+          }
+        }
       }
     },
     "components": {
@@ -2949,53 +2946,6 @@
           }
         }
       },
-      "clk_wiz_0": {
-        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
-        "xci_name": "system_clk_wiz_0_0",
-        "xci_path": "ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xci",
-        "inst_hier_path": "clk_wiz_0",
-        "parameters": {
-          "CLKIN1_JITTER_PS": {
-            "value": "80.0"
-          },
-          "CLKOUT1_JITTER": {
-            "value": "473.813"
-          },
-          "CLKOUT1_PHASE_ERROR": {
-            "value": "351.816"
-          },
-          "CLKOUT1_REQUESTED_OUT_FREQ": {
-            "value": "12.288"
-          },
-          "MMCM_CLKFBOUT_MULT_F": {
-            "value": "42.750"
-          },
-          "MMCM_CLKIN1_PERIOD": {
-            "value": "8.000"
-          },
-          "MMCM_CLKIN2_PERIOD": {
-            "value": "10.000"
-          },
-          "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "62.125"
-          },
-          "MMCM_DIVCLK_DIVIDE": {
-            "value": "7"
-          },
-          "PRIM_IN_FREQ": {
-            "value": "125.000"
-          },
-          "PRIM_SOURCE": {
-            "value": "No_buffer"
-          },
-          "USE_LOCKED": {
-            "value": "false"
-          },
-          "USE_RESET": {
-            "value": "false"
-          }
-        }
-      },
       "proc_sys_reset_0": {
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
         "xci_name": "system_proc_sys_reset_0_0",
@@ -4915,6 +4865,20 @@
             "value": "BUFG"
           }
         }
+      },
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "system_clk_wiz_0_1",
+        "xci_path": "ip/system_clk_wiz_0_1/system_clk_wiz_0_1.xci",
+        "inst_hier_path": "clk_wiz_0",
+        "parameters": {
+          "CLK_IN1_BOARD_INTERFACE": {
+            "value": "sys_clock"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -5118,12 +5082,6 @@
       }
     },
     "nets": {
-      "BUFG_I_1": {
-        "ports": [
-          "sysclk",
-          "util_ds_buf_0/BUFG_I"
-        ]
-      },
       "ac_recdat_1": {
         "ports": [
           "ac_recdat",
@@ -5300,6 +5258,12 @@
           "axi_mem_intercon/M00_ARESETN"
         ]
       },
+      "sys_clock_1": {
+        "ports": [
+          "sys_clock",
+          "util_ds_buf_0/BUFG_I"
+        ]
+      },
       "util_ds_buf_0_BUFG_O": {
         "ports": [
           "util_ds_buf_0/BUFG_O",
@@ -5340,7 +5304,8 @@
       "xlconstant_1_dout": {
         "ports": [
           "xlconstant_1/dout",
-          "axis_subset_converter_0/aresetn"
+          "axis_subset_converter_0/aresetn",
+          "clk_wiz_0/reset"
         ]
       }
     },

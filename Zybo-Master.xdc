@@ -4,42 +4,40 @@
 ## - rename the used signals according to the project
 
 
-##Clock signal
-set_property -dict { PACKAGE_PIN L16   IOSTANDARD LVCMOS33 } [get_ports { sysclk[0] }]; #IO_L11P_T1_SRCC_35 Sch=sysclk
-create_clock -add -name sys_clk_pin -period 8.00 -waveform {0 4} [get_ports sysclk];
+#Clock signal
+set_property -dict {PACKAGE_PIN L16 IOSTANDARD LVCMOS33} [get_ports sys_clock]
+create_clock -period 8.000 -name sys_clk_pin -waveform {0.000 4.000} -add [get_ports sys_clock]
 
 
-##Switches
-set_property PACKAGE_PIN G15 [get_ports {sw[0]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {sw[0]}]
-
-set_property -dict { PACKAGE_PIN P15   IOSTANDARD LVCMOS33 } [get_ports { sws_4bits[1] }];  #IO_L24P_T3_34 Sch=SW1
+#Switches
+set_property -dict { PACKAGE_PIN G15   IOSTANDARD LVCMOS33 } [get_ports { sws_4bits[0] }]; #IO_L19N_T3_VREF_35 Sch=SW0
+set_property -dict { PACKAGE_PIN P15   IOSTANDARD LVCMOS33 } [get_ports { sws_4bits[1] }]; #IO_L24P_T3_34 Sch=SW1
 set_property -dict { PACKAGE_PIN W13   IOSTANDARD LVCMOS33 } [get_ports { sws_4bits[2] }]; #IO_L4N_T0_34 Sch=SW2
 set_property -dict { PACKAGE_PIN T16   IOSTANDARD LVCMOS33 } [get_ports { sws_4bits[3] }]; #IO_L9P_T1_DQS_34 Sch=SW3
 
 
-##Buttons
+#Buttons
 set_property -dict { PACKAGE_PIN R18   IOSTANDARD LVCMOS33 } [get_ports { btns_4bits[0] }]; #IO_L20N_T3_34 Sch=BTN0
 set_property -dict { PACKAGE_PIN P16   IOSTANDARD LVCMOS33 } [get_ports { btns_4bits[1] }]; #IO_L24N_T3_34 Sch=BTN1
 set_property -dict { PACKAGE_PIN V16   IOSTANDARD LVCMOS33 } [get_ports { btns_4bits[2] }]; #IO_L18P_T2_34 Sch=BTN2
 set_property -dict { PACKAGE_PIN Y16   IOSTANDARD LVCMOS33 } [get_ports { btns_4bits[3] }]; #IO_L7P_T1_34 Sch=BTN3
 
 
-##LEDs
+#LEDs
 set_property -dict { PACKAGE_PIN M14   IOSTANDARD LVCMOS33 } [get_ports { leds_4bits[0] }]; #IO_L23P_T3_35 Sch=LED0
 set_property -dict { PACKAGE_PIN M15   IOSTANDARD LVCMOS33 } [get_ports { leds_4bits[1] }]; #IO_L23N_T3_35 Sch=LED1
 set_property -dict { PACKAGE_PIN G14   IOSTANDARD LVCMOS33 } [get_ports { leds_4bits[2] }]; #IO_0_35=Sch=LED2
 set_property -dict { PACKAGE_PIN D18   IOSTANDARD LVCMOS33 } [get_ports { leds_4bits[3] }]; #IO_L3N_T0_DQS_AD1N_35 Sch=LED3
 
 
-##I2S Audio Codec
-set_property -dict { PACKAGE_PIN K18   IOSTANDARD LVCMOS33 } [get_ports ac_bclk]; #IO_L12N_T1_MRCC_35 Sch=AC_BCLK
-set_property -dict { PACKAGE_PIN T19   IOSTANDARD LVCMOS33 } [get_ports ac_mclk]; #IO_25_34 Sch=AC_MCLK
-set_property -dict { PACKAGE_PIN P18   IOSTANDARD LVCMOS33 } [get_ports ac_muten]; #IO_L23N_T3_34 Sch=AC_MUTEN
-set_property -dict { PACKAGE_PIN M17   IOSTANDARD LVCMOS33 } [get_ports ac_pbdat]; #IO_L8P_T1_AD10P_35 Sch=AC_PBDAT
-set_property -dict { PACKAGE_PIN L17   IOSTANDARD LVCMOS33 } [get_ports ac_pblrc]; #IO_L11N_T1_SRCC_35 Sch=AC_PBLRC
-set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 } [get_ports ac_recdat]; #IO_L12P_T1_MRCC_35 Sch=AC_RECDAT
-set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports ac_reclrc]; #IO_L8N_T1_AD10N_35 Sch=AC_RECLRC
+#I2S Audio Codec
+set_property -dict {PACKAGE_PIN K18 IOSTANDARD LVCMOS33} [get_ports ac_bclk]
+set_property -dict {PACKAGE_PIN T19 IOSTANDARD LVCMOS33} [get_ports ac_mclk]
+set_property -dict {PACKAGE_PIN P18 IOSTANDARD LVCMOS33} [get_ports ac_muten]
+set_property -dict {PACKAGE_PIN M17 IOSTANDARD LVCMOS33} [get_ports ac_pbdat]
+set_property -dict {PACKAGE_PIN L17 IOSTANDARD LVCMOS33} [get_ports ac_pblrc]
+set_property -dict {PACKAGE_PIN K17 IOSTANDARD LVCMOS33} [get_ports ac_recdat]
+set_property -dict {PACKAGE_PIN M18 IOSTANDARD LVCMOS33} [get_ports ac_reclrc]
 
 
 ##Audio Codec/external EEPROM IIC bus
@@ -146,3 +144,12 @@ set_property -dict { PACKAGE_PIN J14   IOSTANDARD LVCMOS33 } [get_ports { ja_n[3
 #set_property -dict { PACKAGE_PIN G19   IOSTANDARD LVCMOS33 } [get_ports { vga_b[4] }]; #IO_L18P_T2_AD13P_35 Sch=VGA_B5
 #set_property -dict { PACKAGE_PIN P19   IOSTANDARD LVCMOS33 } [get_ports vga_hs]; #IO_L13N_T2_MRCC_34 Sch=VGA_HS
 #set_property -dict { PACKAGE_PIN R21   IOSTANDARD LVCMOS33 } [get_ports vga_vs]; #IO_0_34 Sch=VGA_VS
+
+set_property IOSTANDARD LVCMOS33 [get_ports Vaux15_v_p]
+set_property IOSTANDARD LVCMOS33 [get_ports Vaux15_v_n]
+set_property IOSTANDARD LVCMOS33 [get_ports Vaux14_v_p]
+set_property IOSTANDARD LVCMOS33 [get_ports Vaux14_v_n]
+set_property IOSTANDARD LVCMOS33 [get_ports Vaux7_v_p]
+set_property IOSTANDARD LVCMOS33 [get_ports Vaux7_v_n]
+set_property IOSTANDARD LVCMOS33 [get_ports Vaux6_v_p]
+set_property IOSTANDARD LVCMOS33 [get_ports Vaux6_v_n]

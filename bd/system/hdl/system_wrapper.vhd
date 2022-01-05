@@ -1,7 +1,7 @@
 --Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
---Date        : Tue Jan  4 10:34:58 2022
+--Date        : Wed Jan  5 10:44:44 2022
 --Host        : clever.amilab.irit.fr running 64-bit unknown
 --Command     : generate_target system_wrapper.bd
 --Design      : system_wrapper
@@ -64,14 +64,13 @@ entity system_wrapper is
     btns_4bits_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
     leds_4bits_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
     sws_4bits_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    sysclk : in STD_LOGIC_VECTOR ( 0 to 0 )
+    sys_clock : in STD_LOGIC
   );
 end system_wrapper;
 
 architecture STRUCTURE of system_wrapper is
   component system is
   port (
-    sysclk : in STD_LOGIC_VECTOR ( 0 to 0 );
     ac_recdat : in STD_LOGIC_VECTOR ( 0 to 0 );
     ac_bclk : out STD_LOGIC_VECTOR ( 0 to 0 );
     ac_pblrc : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -130,7 +129,8 @@ architecture STRUCTURE of system_wrapper is
     TMDS_clk_p : out STD_LOGIC;
     TMDS_clk_n : out STD_LOGIC;
     TMDS_data_p : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    TMDS_data_n : out STD_LOGIC_VECTOR ( 2 downto 0 )
+    TMDS_data_n : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    sys_clock : in STD_LOGIC
   );
   end component system;
   component IOBUF is
@@ -243,6 +243,6 @@ system_i: component system
       btns_4bits_tri_i(3 downto 0) => btns_4bits_tri_i(3 downto 0),
       leds_4bits_tri_o(3 downto 0) => leds_4bits_tri_o(3 downto 0),
       sws_4bits_tri_i(3 downto 0) => sws_4bits_tri_i(3 downto 0),
-      sysclk(0) => sysclk(0)
+      sys_clock => sys_clock
     );
 end STRUCTURE;

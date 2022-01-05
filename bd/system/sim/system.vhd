@@ -1,7 +1,7 @@
 --Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
---Date        : Tue Jan  4 10:34:58 2022
+--Date        : Wed Jan  5 10:44:43 2022
 --Host        : clever.amilab.irit.fr running 64-bit unknown
 --Command     : generate_target system.bd
 --Design      : system
@@ -8818,10 +8818,10 @@ entity system is
     btns_4bits_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
     leds_4bits_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
     sws_4bits_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    sysclk : in STD_LOGIC_VECTOR ( 0 to 0 )
+    sys_clock : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of system : entity is "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=50,numReposBlks=32,numNonXlnxBlks=3,numHierBlks=18,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_clkrst_cnt=2,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of system : entity is "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=50,numReposBlks=32,numNonXlnxBlks=3,numHierBlks=18,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=2,da_clkrst_cnt=2,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of system : entity is "system.hwdef";
 end system;
@@ -9175,12 +9175,6 @@ architecture STRUCTURE of system is
     gpio2_io_i : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component system_axi_gpio_sw_btn_0;
-  component system_clk_wiz_0_0 is
-  port (
-    clk_in1 : in STD_LOGIC;
-    clk_out1 : out STD_LOGIC
-  );
-  end component system_clk_wiz_0_0;
   component system_proc_sys_reset_0_0 is
   port (
     slowest_sync_clk : in STD_LOGIC;
@@ -9378,7 +9372,14 @@ architecture STRUCTURE of system is
     BUFG_O : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component system_util_ds_buf_0_0;
-  signal BUFG_I_1 : STD_LOGIC_VECTOR ( 0 to 0 );
+  component system_clk_wiz_0_1 is
+  port (
+    reset : in STD_LOGIC;
+    clk_in1 : in STD_LOGIC;
+    clk_out1 : out STD_LOGIC;
+    locked : out STD_LOGIC
+  );
+  end component system_clk_wiz_0_1;
   signal Vaux14_1_V_N : STD_LOGIC;
   signal Vaux14_1_V_P : STD_LOGIC;
   signal Vaux15_1_V_N : STD_LOGIC;
@@ -9678,6 +9679,7 @@ architecture STRUCTURE of system is
   signal rst_processing_system7_0_100M_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal rst_processing_system7_0_150M_interconnect_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal rst_processing_system7_0_150M_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal sys_clock_1 : STD_LOGIC;
   signal util_ds_buf_0_BUFG_O : STD_LOGIC_VECTOR ( 0 to 0 );
   signal v_axi4s_vid_out_0_vid_io_out_ACTIVE_VIDEO : STD_LOGIC;
   signal v_axi4s_vid_out_0_vid_io_out_DATA : STD_LOGIC_VECTOR ( 23 downto 0 );
@@ -9697,6 +9699,7 @@ architecture STRUCTURE of system is
   signal NLW_axi_i2s_adi_1_MUTEN_O_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_vdma_0_mm2s_frame_ptr_out_UNCONNECTED : STD_LOGIC_VECTOR ( 5 downto 0 );
   signal NLW_axis_subset_converter_0_m_axis_tkeep_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal NLW_clk_wiz_0_locked_UNCONNECTED : STD_LOGIC;
   signal NLW_proc_sys_reset_0_mb_reset_UNCONNECTED : STD_LOGIC;
   signal NLW_proc_sys_reset_0_bus_struct_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_proc_sys_reset_0_peripheral_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -9943,7 +9946,9 @@ architecture STRUCTURE of system is
   attribute X_INTERFACE_INFO of Vp_Vn_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vp_Vn V_N";
   attribute X_INTERFACE_INFO of Vp_Vn_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vp_Vn V_P";
   attribute X_INTERFACE_INFO of ac_mclk : signal is "xilinx.com:signal:clock:1.0 CLK.AC_MCLK CLK";
-  attribute X_INTERFACE_PARAMETER of ac_mclk : signal is "XIL_INTERFACENAME CLK.AC_MCLK, CLK_DOMAIN system_sysclk, FREQ_HZ 12288013, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_PARAMETER of ac_mclk : signal is "XIL_INTERFACENAME CLK.AC_MCLK, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_INFO of sys_clock : signal is "xilinx.com:signal:clock:1.0 CLK.SYS_CLOCK CLK";
+  attribute X_INTERFACE_PARAMETER of sys_clock : signal is "XIL_INTERFACENAME CLK.SYS_CLOCK, CLK_DOMAIN system_sys_clock, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
   attribute X_INTERFACE_INFO of DDR_addr : signal is "xilinx.com:interface:ddrx:1.0 DDR ADDR";
   attribute X_INTERFACE_PARAMETER of DDR_addr : signal is "XIL_INTERFACENAME DDR, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250";
   attribute X_INTERFACE_INFO of DDR_ba : signal is "xilinx.com:interface:ddrx:1.0 DDR BA";
@@ -9958,10 +9963,7 @@ architecture STRUCTURE of system is
   attribute X_INTERFACE_INFO of btns_4bits_tri_i : signal is "xilinx.com:interface:gpio:1.0 btns_4bits TRI_I";
   attribute X_INTERFACE_INFO of leds_4bits_tri_o : signal is "xilinx.com:interface:gpio:1.0 leds_4bits TRI_O";
   attribute X_INTERFACE_INFO of sws_4bits_tri_i : signal is "xilinx.com:interface:gpio:1.0 sws_4bits TRI_I";
-  attribute X_INTERFACE_INFO of sysclk : signal is "xilinx.com:signal:clock:1.0 CLK.SYSCLK CLK";
-  attribute X_INTERFACE_PARAMETER of sysclk : signal is "XIL_INTERFACENAME CLK.SYSCLK, CLK_DOMAIN system_sysclk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
 begin
-  BUFG_I_1(0) <= sysclk(0);
   HDMI_DDC_scl_o <= processing_system7_0_IIC_1_SCL_O;
   HDMI_DDC_scl_t <= processing_system7_0_IIC_1_SCL_T;
   HDMI_DDC_sda_o <= processing_system7_0_IIC_1_SDA_O;
@@ -10000,6 +10002,7 @@ begin
   processing_system7_0_IIC_0_SDA_I <= IIC_0_sda_i;
   processing_system7_0_IIC_1_SCL_I <= HDMI_DDC_scl_i;
   processing_system7_0_IIC_1_SDA_I <= HDMI_DDC_sda_i;
+  sys_clock_1 <= sys_clock;
 axi_dynclk_0: component system_axi_dynclk_0_0
      port map (
       LOCKED_O => axi_dynclk_0_LOCKED_O,
@@ -10246,10 +10249,12 @@ axis_subset_converter_0: component system_axis_subset_converter_0_0
       s_axis_tuser(0) => axi_vdma_0_M_AXIS_MM2S_TUSER(0),
       s_axis_tvalid => axi_vdma_0_M_AXIS_MM2S_TVALID
     );
-clk_wiz_0: component system_clk_wiz_0_0
+clk_wiz_0: component system_clk_wiz_0_1
      port map (
       clk_in1 => util_ds_buf_0_BUFG_O(0),
-      clk_out1 => clk_wiz_0_clk_out1
+      clk_out1 => clk_wiz_0_clk_out1,
+      locked => NLW_clk_wiz_0_locked_UNCONNECTED,
+      reset => xlconstant_1_dout(0)
     );
 proc_sys_reset_0: component system_proc_sys_reset_0_0
      port map (
@@ -10886,7 +10891,7 @@ rgb2dvi_0: component system_rgb2dvi_0_0
     );
 util_ds_buf_0: component system_util_ds_buf_0_0
      port map (
-      BUFG_I(0) => BUFG_I_1(0),
+      BUFG_I(0) => sys_clock_1,
       BUFG_O(0) => util_ds_buf_0_BUFG_O(0)
     );
 v_axi4s_vid_out_0: component system_v_axi4s_vid_out_0_0

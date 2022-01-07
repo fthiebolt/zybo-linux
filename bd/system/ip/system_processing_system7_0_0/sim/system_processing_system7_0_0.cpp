@@ -158,7 +158,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     DMA0_REQ_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA0_REQ_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA0_REQ_transactor_param_props.addLong("HAS_TLAST", "1");
-    DMA0_REQ_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA0_REQ_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA0_REQ_transactor_param_props.addLong("HAS_RESET", "0");
     DMA0_REQ_transactor_param_props.addFloat("PHASE", "0.0");
     DMA0_REQ_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -202,7 +202,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     DMA0_ACK_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA0_ACK_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA0_ACK_transactor_param_props.addLong("HAS_TLAST", "0");
-    DMA0_ACK_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA0_ACK_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA0_ACK_transactor_param_props.addLong("HAS_RESET", "0");
     DMA0_ACK_transactor_param_props.addFloat("PHASE", "0.0");
     DMA0_ACK_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -245,7 +245,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     DMA1_REQ_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA1_REQ_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA1_REQ_transactor_param_props.addLong("HAS_TLAST", "1");
-    DMA1_REQ_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA1_REQ_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA1_REQ_transactor_param_props.addLong("HAS_RESET", "0");
     DMA1_REQ_transactor_param_props.addFloat("PHASE", "0.0");
     DMA1_REQ_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -289,7 +289,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     DMA1_ACK_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA1_ACK_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA1_ACK_transactor_param_props.addLong("HAS_TLAST", "0");
-    DMA1_ACK_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA1_ACK_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA1_ACK_transactor_param_props.addLong("HAS_RESET", "0");
     DMA1_ACK_transactor_param_props.addFloat("PHASE", "0.0");
     DMA1_ACK_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -328,7 +328,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     M_AXI_GP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("DATA_WIDTH", "32");
-    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "100000000");
     M_AXI_GP0_transactor_param_props.addLong("ID_WIDTH", "12");
     M_AXI_GP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
     M_AXI_GP0_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -434,7 +434,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     S_AXI_HP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     S_AXI_HP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     S_AXI_HP0_transactor_param_props.addLong("DATA_WIDTH", "64");
-    S_AXI_HP0_transactor_param_props.addLong("FREQ_HZ", "1.42857e+08");
+    S_AXI_HP0_transactor_param_props.addLong("FREQ_HZ", "142857132");
     S_AXI_HP0_transactor_param_props.addLong("ID_WIDTH", "6");
     S_AXI_HP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
     S_AXI_HP0_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -635,7 +635,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     DMA0_REQ_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA0_REQ_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA0_REQ_transactor_param_props.addLong("HAS_TLAST", "1");
-    DMA0_REQ_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA0_REQ_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA0_REQ_transactor_param_props.addLong("HAS_RESET", "0");
     DMA0_REQ_transactor_param_props.addFloat("PHASE", "0.0");
     DMA0_REQ_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -679,7 +679,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     DMA0_ACK_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA0_ACK_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA0_ACK_transactor_param_props.addLong("HAS_TLAST", "0");
-    DMA0_ACK_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA0_ACK_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA0_ACK_transactor_param_props.addLong("HAS_RESET", "0");
     DMA0_ACK_transactor_param_props.addFloat("PHASE", "0.0");
     DMA0_ACK_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -722,7 +722,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     DMA1_REQ_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA1_REQ_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA1_REQ_transactor_param_props.addLong("HAS_TLAST", "1");
-    DMA1_REQ_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA1_REQ_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA1_REQ_transactor_param_props.addLong("HAS_RESET", "0");
     DMA1_REQ_transactor_param_props.addFloat("PHASE", "0.0");
     DMA1_REQ_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -766,7 +766,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     DMA1_ACK_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA1_ACK_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA1_ACK_transactor_param_props.addLong("HAS_TLAST", "0");
-    DMA1_ACK_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA1_ACK_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA1_ACK_transactor_param_props.addLong("HAS_RESET", "0");
     DMA1_ACK_transactor_param_props.addFloat("PHASE", "0.0");
     DMA1_ACK_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -805,7 +805,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     M_AXI_GP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("DATA_WIDTH", "32");
-    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "100000000");
     M_AXI_GP0_transactor_param_props.addLong("ID_WIDTH", "12");
     M_AXI_GP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
     M_AXI_GP0_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -911,7 +911,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     S_AXI_HP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     S_AXI_HP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     S_AXI_HP0_transactor_param_props.addLong("DATA_WIDTH", "64");
-    S_AXI_HP0_transactor_param_props.addLong("FREQ_HZ", "1.42857e+08");
+    S_AXI_HP0_transactor_param_props.addLong("FREQ_HZ", "142857132");
     S_AXI_HP0_transactor_param_props.addLong("ID_WIDTH", "6");
     S_AXI_HP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
     S_AXI_HP0_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -1112,7 +1112,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     DMA0_REQ_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA0_REQ_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA0_REQ_transactor_param_props.addLong("HAS_TLAST", "1");
-    DMA0_REQ_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA0_REQ_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA0_REQ_transactor_param_props.addLong("HAS_RESET", "0");
     DMA0_REQ_transactor_param_props.addFloat("PHASE", "0.0");
     DMA0_REQ_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -1156,7 +1156,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     DMA0_ACK_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA0_ACK_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA0_ACK_transactor_param_props.addLong("HAS_TLAST", "0");
-    DMA0_ACK_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA0_ACK_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA0_ACK_transactor_param_props.addLong("HAS_RESET", "0");
     DMA0_ACK_transactor_param_props.addFloat("PHASE", "0.0");
     DMA0_ACK_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -1199,7 +1199,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     DMA1_REQ_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA1_REQ_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA1_REQ_transactor_param_props.addLong("HAS_TLAST", "1");
-    DMA1_REQ_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA1_REQ_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA1_REQ_transactor_param_props.addLong("HAS_RESET", "0");
     DMA1_REQ_transactor_param_props.addFloat("PHASE", "0.0");
     DMA1_REQ_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -1243,7 +1243,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     DMA1_ACK_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA1_ACK_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA1_ACK_transactor_param_props.addLong("HAS_TLAST", "0");
-    DMA1_ACK_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA1_ACK_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA1_ACK_transactor_param_props.addLong("HAS_RESET", "0");
     DMA1_ACK_transactor_param_props.addFloat("PHASE", "0.0");
     DMA1_ACK_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -1282,7 +1282,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     M_AXI_GP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("DATA_WIDTH", "32");
-    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "100000000");
     M_AXI_GP0_transactor_param_props.addLong("ID_WIDTH", "12");
     M_AXI_GP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
     M_AXI_GP0_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -1388,7 +1388,7 @@ void system_processing_system7_0_0::before_end_of_elaboration()
     S_AXI_HP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     S_AXI_HP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     S_AXI_HP0_transactor_param_props.addLong("DATA_WIDTH", "64");
-    S_AXI_HP0_transactor_param_props.addLong("FREQ_HZ", "1.42857e+08");
+    S_AXI_HP0_transactor_param_props.addLong("FREQ_HZ", "142857132");
     S_AXI_HP0_transactor_param_props.addLong("ID_WIDTH", "6");
     S_AXI_HP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
     S_AXI_HP0_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -1578,7 +1578,7 @@ system_processing_system7_0_0::system_processing_system7_0_0(const sc_core::sc_m
     DMA0_REQ_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA0_REQ_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA0_REQ_transactor_param_props.addLong("HAS_TLAST", "1");
-    DMA0_REQ_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA0_REQ_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA0_REQ_transactor_param_props.addLong("HAS_RESET", "0");
     DMA0_REQ_transactor_param_props.addFloat("PHASE", "0.0");
     DMA0_REQ_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -1604,7 +1604,7 @@ system_processing_system7_0_0::system_processing_system7_0_0(const sc_core::sc_m
     DMA0_ACK_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA0_ACK_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA0_ACK_transactor_param_props.addLong("HAS_TLAST", "0");
-    DMA0_ACK_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA0_ACK_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA0_ACK_transactor_param_props.addLong("HAS_RESET", "0");
     DMA0_ACK_transactor_param_props.addFloat("PHASE", "0.0");
     DMA0_ACK_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -1629,7 +1629,7 @@ system_processing_system7_0_0::system_processing_system7_0_0(const sc_core::sc_m
     DMA1_REQ_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA1_REQ_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA1_REQ_transactor_param_props.addLong("HAS_TLAST", "1");
-    DMA1_REQ_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA1_REQ_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA1_REQ_transactor_param_props.addLong("HAS_RESET", "0");
     DMA1_REQ_transactor_param_props.addFloat("PHASE", "0.0");
     DMA1_REQ_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -1655,7 +1655,7 @@ system_processing_system7_0_0::system_processing_system7_0_0(const sc_core::sc_m
     DMA1_ACK_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA1_ACK_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA1_ACK_transactor_param_props.addLong("HAS_TLAST", "0");
-    DMA1_ACK_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA1_ACK_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA1_ACK_transactor_param_props.addLong("HAS_RESET", "0");
     DMA1_ACK_transactor_param_props.addFloat("PHASE", "0.0");
     DMA1_ACK_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -1676,7 +1676,7 @@ system_processing_system7_0_0::system_processing_system7_0_0(const sc_core::sc_m
     M_AXI_GP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("DATA_WIDTH", "32");
-    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "100000000");
     M_AXI_GP0_transactor_param_props.addLong("ID_WIDTH", "12");
     M_AXI_GP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
     M_AXI_GP0_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -1763,7 +1763,7 @@ system_processing_system7_0_0::system_processing_system7_0_0(const sc_core::sc_m
     S_AXI_HP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     S_AXI_HP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     S_AXI_HP0_transactor_param_props.addLong("DATA_WIDTH", "64");
-    S_AXI_HP0_transactor_param_props.addLong("FREQ_HZ", "1.42857e+08");
+    S_AXI_HP0_transactor_param_props.addLong("FREQ_HZ", "142857132");
     S_AXI_HP0_transactor_param_props.addLong("ID_WIDTH", "6");
     S_AXI_HP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
     S_AXI_HP0_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -2039,7 +2039,7 @@ system_processing_system7_0_0::system_processing_system7_0_0(const sc_core::sc_m
     DMA0_REQ_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA0_REQ_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA0_REQ_transactor_param_props.addLong("HAS_TLAST", "1");
-    DMA0_REQ_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA0_REQ_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA0_REQ_transactor_param_props.addLong("HAS_RESET", "0");
     DMA0_REQ_transactor_param_props.addFloat("PHASE", "0.0");
     DMA0_REQ_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -2065,7 +2065,7 @@ system_processing_system7_0_0::system_processing_system7_0_0(const sc_core::sc_m
     DMA0_ACK_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA0_ACK_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA0_ACK_transactor_param_props.addLong("HAS_TLAST", "0");
-    DMA0_ACK_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA0_ACK_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA0_ACK_transactor_param_props.addLong("HAS_RESET", "0");
     DMA0_ACK_transactor_param_props.addFloat("PHASE", "0.0");
     DMA0_ACK_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -2090,7 +2090,7 @@ system_processing_system7_0_0::system_processing_system7_0_0(const sc_core::sc_m
     DMA1_REQ_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA1_REQ_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA1_REQ_transactor_param_props.addLong("HAS_TLAST", "1");
-    DMA1_REQ_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA1_REQ_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA1_REQ_transactor_param_props.addLong("HAS_RESET", "0");
     DMA1_REQ_transactor_param_props.addFloat("PHASE", "0.0");
     DMA1_REQ_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -2116,7 +2116,7 @@ system_processing_system7_0_0::system_processing_system7_0_0(const sc_core::sc_m
     DMA1_ACK_transactor_param_props.addLong("HAS_TSTRB", "0");
     DMA1_ACK_transactor_param_props.addLong("HAS_TKEEP", "0");
     DMA1_ACK_transactor_param_props.addLong("HAS_TLAST", "0");
-    DMA1_ACK_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    DMA1_ACK_transactor_param_props.addLong("FREQ_HZ", "100000000");
     DMA1_ACK_transactor_param_props.addLong("HAS_RESET", "0");
     DMA1_ACK_transactor_param_props.addFloat("PHASE", "0.0");
     DMA1_ACK_transactor_param_props.addString("CLK_DOMAIN", "system_processing_system7_0_0_FCLK_CLK0");
@@ -2137,7 +2137,7 @@ system_processing_system7_0_0::system_processing_system7_0_0(const sc_core::sc_m
     M_AXI_GP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("DATA_WIDTH", "32");
-    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "1e+08");
+    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "100000000");
     M_AXI_GP0_transactor_param_props.addLong("ID_WIDTH", "12");
     M_AXI_GP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
     M_AXI_GP0_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -2224,7 +2224,7 @@ system_processing_system7_0_0::system_processing_system7_0_0(const sc_core::sc_m
     S_AXI_HP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     S_AXI_HP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     S_AXI_HP0_transactor_param_props.addLong("DATA_WIDTH", "64");
-    S_AXI_HP0_transactor_param_props.addLong("FREQ_HZ", "1.42857e+08");
+    S_AXI_HP0_transactor_param_props.addLong("FREQ_HZ", "142857132");
     S_AXI_HP0_transactor_param_props.addLong("ID_WIDTH", "6");
     S_AXI_HP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
     S_AXI_HP0_transactor_param_props.addLong("AWUSER_WIDTH", "0");

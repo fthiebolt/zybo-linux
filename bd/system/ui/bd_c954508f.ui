@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.31716",
-   "Default View_TopLeft":"2069,-109",
+   "Default View_ScaleFactor":"0.59418",
+   "Default View_TopLeft":"-197,-119",
    "ExpandedHierarchyInLayout":"",
    "PinnedPorts":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
@@ -49,8 +49,8 @@ preplace inst rgb2dvi_0 -pg 1 -lvl 2 -x 840 -y 900 -defaultsOSRD
 preplace inst util_ds_buf_0 -pg 1 -lvl 2 -x 840 -y 1190 -defaultsOSRD
 preplace inst clk_wiz_0 -pg 1 -lvl 3 -x 1510 -y 700 -defaultsOSRD
 preplace netloc ac_recdat_1 1 0 4 50J -80 NJ -80 1040J -90 1870
-preplace netloc axi_dynclk_0_LOCKED_O 1 1 4 650 780 1060J 1220 1940J 1170 2360J
-preplace netloc axi_dynclk_0_PXL_CLK_5X_O 1 1 4 660 790 1080J 1180 NJ 1180 2380J
+preplace netloc axi_dynclk_0_LOCKED_O 1 1 4 660 800 1040J 1220 1940J 1170 2360J
+preplace netloc axi_dynclk_0_PXL_CLK_5X_O 1 1 4 650 790 1080J 1180 NJ 1180 2380J
 preplace netloc axi_dynclk_0_PXL_CLK_O 1 0 5 80 910 590 1110 1030J 1190 NJ 1190 2400J
 preplace netloc axi_gpio_0_ip2intc_irpt 1 4 1 2470 230n
 preplace netloc axi_gpio_sw_ip2intc_irpt 1 4 1 2430 520n
@@ -61,9 +61,9 @@ preplace netloc axi_vdma_0_mm2s_introut 1 4 1 2510 1020n
 preplace netloc clk_wiz_0_clk_out1 1 3 3 1930 -20 NJ -20 2760J
 preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 100 300 630 -10 1100J -50 1840
 preplace netloc processing_system7_0_FCLK_CLK1 1 1 3 660 1120 1150J 1230 1770J
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 2 2 1210 560 1740
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 2 2 1180 560 1740
 preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 3 670 -60 1020J -70 1740J
-preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 0 4 110 310 610 770 1040J 1240 1880
+preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 0 4 110 310 610 780 1050J 1240 1880
 preplace netloc rst_processing_system7_0_150M_interconnect_aresetn 1 3 1 1800 470n
 preplace netloc rst_processing_system7_0_150M_peripheral_aresetn 1 3 1 1780 490n
 preplace netloc sys_clock_1 1 0 2 NJ -50 600
@@ -79,6 +79,7 @@ preplace netloc Vaux15_1 1 0 4 60J -30 NJ -30 NJ -30 1750J
 preplace netloc Vaux6_1 1 0 4 20J -100 NJ -100 1010J -110 1940J
 preplace netloc Vaux7_1 1 0 4 30J -90 NJ -90 1020J -100 1920J
 preplace netloc Vp_Vn_1 1 0 4 70J -20 NJ -20 NJ -20 1900
+preplace netloc axi_gpio_hdmi_GPIO 1 4 2 2410 160 NJ
 preplace netloc axi_gpio_led_GPIO 1 4 2 NJ 360 NJ
 preplace netloc axi_gpio_sw_GPIO2 1 4 2 2450J 280 NJ
 preplace netloc axi_gpio_sw_btn_GPIO 1 4 2 2460 320 NJ
@@ -87,7 +88,7 @@ preplace netloc axi_i2s_adi_1_DMA_TX_REQ 1 2 3 1180 1210 NJ 1210 2390
 preplace netloc axi_mem_intercon_M00_AXI 1 2 3 1190 1450 NJ 1450 2360
 preplace netloc axi_vdma_0_M_AXIS_MM2S 1 2 3 1170 1460 NJ 1460 2370
 preplace netloc axi_vdma_0_M_AXI_MM2S 1 3 2 1940 1470 2360
-preplace netloc axis_subset_converter_0_M_AXIS 1 1 3 670 1130 1050J 1150 1760J
+preplace netloc axis_subset_converter_0_M_AXIS 1 1 3 670 1130 1060J 1150 1760J
 preplace netloc processing_system7_0_DDR 1 3 3 1820 -30 NJ -30 2780J
 preplace netloc processing_system7_0_DMA0_ACK 1 3 1 1910 900n
 preplace netloc processing_system7_0_DMA1_ACK 1 3 1 1920 920n
@@ -103,9 +104,8 @@ preplace netloc processing_system7_0_axi_periph_M06_AXI 1 2 2 1120 350 1830J
 preplace netloc processing_system7_0_axi_periph_M08_AXI 1 2 2 1120J 570 1830
 preplace netloc processing_system7_0_axi_periph_M13_AXI 1 2 2 1110J 600 1850J
 preplace netloc rgb2dvi_0_TMDS 1 2 4 1090J -80 NJ -80 NJ -80 2770J
-preplace netloc v_axi4s_vid_out_0_vid_io_out 1 1 2 670 800 1010
+preplace netloc v_axi4s_vid_out_0_vid_io_out 1 1 2 670 810 1010
 preplace netloc v_tc_0_vtiming_out 1 1 1 580 130n
-preplace netloc axi_gpio_hdmi_GPIO 1 4 2 2410 160 NJ
 levelinfo -pg 1 0 440 840 1510 2170 2660 2810
 pagesize -pg 1 -db -bbox -sgen -160 -470 2970 1820
 "

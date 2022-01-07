@@ -1,7 +1,7 @@
 --Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
---Date        : Wed Jan  5 18:13:48 2022
+--Date        : Thu Jan  6 09:32:10 2022
 --Host        : clever.amilab.irit.fr running 64-bit unknown
 --Command     : generate_target system_wrapper.bd
 --Design      : system_wrapper
@@ -86,6 +86,9 @@ architecture STRUCTURE of system_wrapper is
     Vaux7_v_p : in STD_LOGIC;
     Vp_Vn_v_n : in STD_LOGIC;
     Vp_Vn_v_p : in STD_LOGIC;
+    hdmi_hpd_tri_i : in STD_LOGIC;
+    hdmi_hpd_tri_o : out STD_LOGIC;
+    hdmi_hpd_tri_t : out STD_LOGIC;
     leds_4bits_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
     btns_4bits_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
     sws_4bits_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -119,10 +122,7 @@ architecture STRUCTURE of system_wrapper is
     TMDS_clk_p : out STD_LOGIC;
     TMDS_clk_n : out STD_LOGIC;
     TMDS_data_p : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    TMDS_data_n : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    hdmi_hpd_tri_i : in STD_LOGIC;
-    hdmi_hpd_tri_o : out STD_LOGIC;
-    hdmi_hpd_tri_t : out STD_LOGIC
+    TMDS_data_n : out STD_LOGIC_VECTOR ( 2 downto 0 )
   );
   end component system;
   component IOBUF is

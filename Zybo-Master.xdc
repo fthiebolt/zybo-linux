@@ -6,7 +6,7 @@
 
 #Clock signal
 set_property -dict {PACKAGE_PIN L16 IOSTANDARD LVCMOS33} [get_ports sys_clock]
-create_clock -period 8.000 -name sys_clk_pin -waveform {0.000 4.000} -add [get_ports sys_clock]
+create_clock -period 8.000 -name sys_clock -waveform {0.000 4.000} -add [get_ports sys_clock]
 
 
 #Switches
@@ -40,8 +40,9 @@ set_property -dict {PACKAGE_PIN K17 IOSTANDARD LVCMOS33} [get_ports ac_recdat]
 set_property -dict {PACKAGE_PIN M18 IOSTANDARD LVCMOS33} [get_ports ac_reclrc]
 
 
-#Audio Codec/external EEPROM IIC bus
-#Note: external i2c EEPROM contains the ethernet MAC address
+# IIC bus:
+#   Audio Codec
+#   external EEPROM (contains the ethernet MAC address)
 set_property -dict { PACKAGE_PIN N18   IOSTANDARD LVCMOS33 } [get_ports IIC_0_scl_io]; #IO_L13P_T2_MRCC_34 Sch=AC_SCL
 set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports IIC_0_sda_io]; #IO_L23P_T3_34 Sch=AC_SDA
 
@@ -62,7 +63,7 @@ set_property -dict { PACKAGE_PIN C20   IOSTANDARD TMDS_33 } [get_ports { TMDS_da
 set_property -dict { PACKAGE_PIN A20   IOSTANDARD TMDS_33 } [get_ports { TMDS_data_n[2] }]; #IO_L2N_T0_AD8N_35 Sch=HDMI_D2_N
 set_property -dict { PACKAGE_PIN B19   IOSTANDARD TMDS_33 } [get_ports { TMDS_data_p[2] }]; #IO_L2P_T0_AD8P_35 Sch=HDMI_D2_P
 #set_property -dict { PACKAGE_PIN E19   IOSTANDARD LVCMOS33 } [get_ports hdmi_cec]; #IO_L5N_T0_AD9N_35 Sch=HDMI_CEC (not specified @ board.xml)
-set_property -dict { PACKAGE_PIN E18   IOSTANDARD LVCMOS33 } [get_ports hdmi_hpd]; #IO_L5P_T0_AD9P_35 Sch=HDMI_HPD
+set_property -dict { PACKAGE_PIN E18   IOSTANDARD LVCMOS33 } [get_ports hdmi_hpd_tri_io]; #IO_L5P_T0_AD9P_35 Sch=HDMI_HPD
 #set_property -dict { PACKAGE_PIN F17   IOSTANDARD LVCMOS33 } [get_ports hdmi_out_en]; #IO_L6N_T0_VREF_35 Sch=HDMI_OUT_EN (active via pullDown)
 #set_property -dict { PACKAGE_PIN G17   IOSTANDARD LVCMOS33 } [get_ports hdmi_scl]; #IO_L16P_T2_35 Sch=HDMI_SCL (not specified @ board.xml)
 #set_property -dict { PACKAGE_PIN G18   IOSTANDARD LVCMOS33 } [get_ports hdmi_sda]; #IO_L16N_T2_35 Sch=HDMI_SDA (not specified @ board.xml)

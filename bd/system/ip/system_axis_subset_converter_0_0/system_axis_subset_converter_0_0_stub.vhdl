@@ -1,10 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
--- Date        : Wed Jan  5 17:22:28 2022
+-- Date        : Tue Jan  4 09:01:05 2022
 -- Host        : clever.amilab.irit.fr running 64-bit unknown
--- Command     : write_vhdl -force -mode synth_stub
---               /nfs/home/francois/zybo-linux/bd/system/ip/system_axis_subset_converter_0_0/system_axis_subset_converter_0_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top system_axis_subset_converter_0_0 -prefix
+--               system_axis_subset_converter_0_0_ system_axis_subset_converter_0_0_stub.vhdl
 -- Design      : system_axis_subset_converter_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z010clg400-1

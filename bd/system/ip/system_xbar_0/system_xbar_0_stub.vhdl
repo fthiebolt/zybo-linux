@@ -1,10 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
--- Date        : Wed Jan  5 17:23:14 2022
+-- Date        : Tue Jan  4 08:59:52 2022
 -- Host        : clever.amilab.irit.fr running 64-bit unknown
--- Command     : write_vhdl -force -mode synth_stub
---               /nfs/home/francois/zybo-linux/bd/system/ip/system_xbar_0/system_xbar_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top system_xbar_0 -prefix
+--               system_xbar_0_ system_xbar_0_stub.vhdl
 -- Design      : system_xbar_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z010clg400-1

@@ -2,6 +2,7 @@
 .Xil
 *.jou
 *.log
+vivado_*.*
 
 # generated directories
 *.cache

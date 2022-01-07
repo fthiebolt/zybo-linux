@@ -148,3 +148,9 @@ set_property -dict { PACKAGE_PIN J14   IOSTANDARD LVCMOS33 } [get_ports Vaux6_v_
 #set_property -dict { PACKAGE_PIN P19   IOSTANDARD LVCMOS33 } [get_ports vga_hs]; #IO_L13N_T2_MRCC_34 Sch=VGA_HS
 #set_property -dict { PACKAGE_PIN R21   IOSTANDARD LVCMOS33 } [get_ports vga_vs]; #IO_0_34 Sch=VGA_VS
 
+
+# [jan.22] to avoid critical warnings
+set_false_path -from [get_clocks -of_objects [get_pins system_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT0]] -to [get_clocks clk_fpga_0]
+set_false_path -from [get_clocks clk_fpga_0] -to [get_clocks -of_objects [get_pins system_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT0]]
+#set_false_path -from [get_clocks clk_out1_system_clk_wiz_0_1] -to [get_clocks clk_fpga_0]
+#set_false_path -from [get_clocks clk_fpga_0] -to [get_clocks clk_out1_system_clk_wiz_0_1]
